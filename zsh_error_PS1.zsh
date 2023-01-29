@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# zsh option "prompt substitution" of PS1 prompt active
-setopt prompt_subst
+set -o PROMPT_SUBST
+set PROMPT_PERCENT
 
 # re-define "command not foumnd" event handler to add console beep
 function command_not_found_handler() {
@@ -23,5 +23,5 @@ precmd() {
 	if [ $_relrtnval != 0 ]; then
 		_errclr=$_red;
 	fi
-	PS1=$(printf "[$_yel%s$_rst@$_cyan%s$_rst($_gr%s$_rst)]%s$:$_rst " "$USER" "%m" "%1~" "$_errclr")
- }
+	PS1="[%{$_yel%}%n%{$_errclr%}:%{$_cyan%}%m%{$_rst%}(%{$_gr%}%1~%{$_rst%})]%{$_errclr%}%{$_rst%}"
+}
