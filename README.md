@@ -9,3 +9,5 @@
 
 + Next the <code>precmd</code> function must be defined.
 </br>*I have placed this in my home directories <code>.zshrc</code> file.*
+
++ The charecter count of the printed PS1 variable must be known. Thefore, in a ZSH shell, expanded variables are surronded by %{ and %} so there charecters are not counted. I have not tested this in bash as of yet.. 
