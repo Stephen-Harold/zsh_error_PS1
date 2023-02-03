@@ -24,5 +24,5 @@ precmd() {
 	if [ $_relrtnval != 0 ]; then
 		_errclr=$_red;
 	fi
-	PS1="[%{$_blu%}($_numusers)%{$_yel%}%n%{$_errclr%}:%{$_cyan%}%m%{$_rst%}(%{$_gr%}%1~%{$_rst%})]%{$_errclr%}%{$_rst%}"
+	PS1="[%{$_blu%}$_numusers%{$_errclr%}:%{$_yel%}%n%{$_errclr%}:%{$_cyan%}%m%{$_rst%}(%{$_gr%}%1~%{$_rst%})]%{$_errclr%}%{$_rst%}"
 }
