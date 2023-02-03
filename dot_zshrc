@@ -16,12 +16,13 @@ precmd() {
 	local _yel=$(tput setaf 11)
 	local _cyan=$(tput setaf 12)
 	local _gr=$(tput setaf 10)
-	local _red=$(tput setaf 1)
+	local _red=$(tput setaf 1)	
+	local _blu=$(tput setaf 4)
 	local _rst=$(tput sgr0)
-	local _pwd=${PWD/$HOME/'~'}
+	local _numusers=$(w -h |wc -l |sed 's/^[ \t]*//')
 	local _errclr=$_gr
 	if [ $_relrtnval != 0 ]; then
 		_errclr=$_red;
 	fi
-	PS1="[%{$_yel%}%n%{$_errclr%}:%{$_cyan%}%m%{$_rst%}(%{$_gr%}%1~%{$_rst%})]%{$_errclr%}%{$_rst%}"
+	PS1="[%{$_blu%}($_numusers)%{$_yel%}%n%{$_errclr%}:%{$_cyan%}%m%{$_rst%}(%{$_gr%}%1~%{$_rst%})]%{$_errclr%}%{$_rst%}"
 }
